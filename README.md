@@ -97,6 +97,8 @@ Read the full [Privacy Policy](https://rajdeep582.github.io/Unidoc/legal/privacy
 
 Unidoc 1.0.0 runs on Android 8.0 and newer.
 
+<a href="https://github.com/Rajdeep582/Unidoc/releases/latest"><b>⬇ Download the latest APK</b></a> — signed release, about 75 MB.
+
 Coming to **Indus Appstore**, **Samsung Galaxy Store**, **Huawei AppGallery**, **Xiaomi GetApps**,
 **OPPO App Market**, **vivo App Store** and **Uptodown**. Store links will appear here as each listing goes live.
 
