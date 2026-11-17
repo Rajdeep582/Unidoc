@@ -1,0 +1,22 @@
+*.iml
+.gradle/
+.kotlin/
+/local.properties
+.idea/
+.DS_Store
+build/
+/captures
+.externalNativeBuild
+.cxx
+keystore.properties
+*.jks
+*.keystore
+/dist
+
+# Release signing — never commit
+
+# Local build outputs and diagnostics (not source)
+/release/
+/dist/
+/server/.venv/
+/_to_delete/

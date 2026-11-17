@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:drawable="@drawable/splash_mark">
+    <target android:name="corners">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:duration="560"
+                    android:interpolator="@android:anim/overshoot_interpolator"
+                    android:propertyName="scaleX"
+                    android:valueFrom="0.72"
+                    android:valueTo="1"
+                    android:valueType="floatType" />
+                <objectAnimator
+                    android:duration="560"
+                    android:interpolator="@android:anim/overshoot_interpolator"
+                    android:propertyName="scaleY"
+                    android:valueFrom="0.72"
+                    android:valueTo="1"
+                    android:valueType="floatType" />
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="beam">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:duration="420"
+                    android:interpolator="@android:interpolator/fast_out_slow_in"
+                    android:propertyName="translateY"
+                    android:startOffset="100"
+                    android:valueFrom="-16"
+                    android:valueTo="12"
+                    android:valueType="floatType" />
+                <objectAnimator
+                    android:duration="260"
+                    android:interpolator="@android:interpolator/fast_out_slow_in"
+                    android:propertyName="translateY"
+                    android:valueFrom="12"
+                    android:valueTo="0"
+                    android:valueType="floatType" />
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="beamPath">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="220"
+                android:propertyName="strokeAlpha"
+                android:valueFrom="0"
+                android:valueTo="1"
+                android:valueType="floatType" />
+        </aapt:attr>
+    </target>
+</animated-vector>
