@@ -55,7 +55,8 @@ class ToolViewModel @Inject constructor(
         viewModelScope.launch { signatures.signature.collect { sig -> _uiState.update { it.copy(signature = sig) } } }
         viewModelScope.launch {
             settings.settings.collect { s ->
-                val ready = s.cloudEnabled && s.cloudServerUrl.startsWith("https://")
+                val ready =
+                    com.rajdeep.unidoc.core.model.Features.CLOUD && s.cloudEnabled && s.cloudServerUrl.startsWith("https://")
                 _uiState.update { it.copy(cloudReady = ready) }
             }
         }

@@ -25,9 +25,10 @@ object LegalDocuments {
     val privacyPolicy = LegalDocument(
         title = "Privacy Policy",
         intro = "${LegalInfo.APP_NAME} (\"the app\") is developed by ${LegalInfo.DEVELOPER}, ${LegalInfo.LOCATION} " +
-            "(\"we\", \"us\"). This policy explains what the app does with your information. In short: your scans " +
-            "and files stay on your phone. We have no servers that receive your documents, we do not use accounts, " +
-            "ads, analytics or tracking, and we never sell data. Effective ${LegalInfo.EFFECTIVE_DATE}.",
+            "(\"we\", \"us\"). This policy explains what the app does with your information. In short: everything " +
+            "runs on your phone and your scans and files never leave it unless you share them yourself. We have no " +
+            "servers that receive your documents, we do not use accounts, ads, analytics or tracking, and we never " +
+            "sell data. Effective ${LegalInfo.EFFECTIVE_DATE}.",
         sections = listOf(
             LegalSection(
                 "1. Information the app handles",
@@ -38,8 +39,7 @@ object LegalDocuments {
                         "location you select. The app only accesses files you explicitly choose.",
                     "Documents you create: scans, converted files and recognised text are stored in the app's " +
                         "private storage on your device, and in places you choose when exporting or sharing.",
-                    "Settings: your preferences (theme, quality, languages, optional server address) are stored " +
-                        "locally on your device."
+                    "Settings: your preferences (theme, quality, languages) are stored locally on your device."
                 )
             ),
             LegalSection(
@@ -55,29 +55,15 @@ object LegalDocuments {
                 listOf(
                     "Camera — used only while you are scanning, to capture documents and read QR codes. You can deny " +
                         "it and still import images and PDFs.",
-                    "Internet / network state — used only for the optional cloud feature described below, for the " +
-                        "\"Web page to PDF\" tool (which downloads the page whose address you enter directly from that " +
-                        "website), and by Google's on-device ML Kit libraries (section 5). Everything else works offline.",
+                    "Internet / network state — used only by the \"Web page to PDF\" tool (which downloads the page " +
+                        "whose address you enter directly from that website) and by Google's on-device ML Kit libraries " +
+                        "(section 4). The app never uploads your documents; scanning and every other tool work offline.",
                     "The app does not request access to your contacts, location, microphone, call logs or SMS, and " +
                         "it reads shared storage only through the system file picker."
                 )
             ),
             LegalSection(
-                "4. Optional cloud processing (off by default)",
-                listOf(
-                    "Some advanced conversions (for example Office documents, PDF to Word/Excel, PDF/A and OCR for " +
-                        "some Indian scripts) can optionally use a processing server. This is switched off by default " +
-                        "and is used only after you turn it on in Settings and confirm.",
-                    "When enabled, only the files you submit to a tool marked \"Cloud\" are sent, over an encrypted " +
-                        "HTTPS connection, to the server address entered in Settings. They are used solely to perform " +
-                        "the requested conversion and are deleted from the server when the job finishes; the result " +
-                        "is returned to your device. Nothing else is uploaded.",
-                    "If you connect a server that you or someone else operates, that operator is responsible for " +
-                        "how the server handles files. You can turn cloud processing off at any time."
-                )
-            ),
-            LegalSection(
-                "5. Third-party components",
+                "4. Third-party components",
                 listOf(
                     "Text recognition and QR/barcode reading use Google ML Kit, which runs on your device. Google's ML " +
                         "Kit libraries may send limited diagnostic and usage information (such as API usage, " +
@@ -89,24 +75,23 @@ object LegalDocuments {
                 )
             ),
             LegalSection(
-                "6. Storage, security and retention",
+                "5. Storage, security and retention",
                 listOf(
                     "Your documents remain on your device until you delete them in the app, clear the app's storage " +
                         "or uninstall the app. App data is excluded from cloud backups. Exported files are kept " +
                         "wherever you save them and are under your control.",
-                    "Password-protected PDFs are encrypted with AES-256 on your device. Cloud traffic, when enabled, " +
-                        "is restricted to HTTPS."
+                    "Password-protected PDFs are encrypted with AES-256 on your device."
                 )
             ),
             LegalSection(
-                "7. Children",
+                "6. Children",
                 listOf(
                     "The app is a general productivity tool and is not directed to children. It does not knowingly " +
                         "collect personal data from anyone, including children."
                 )
             ),
             LegalSection(
-                "8. Your rights",
+                "7. Your rights",
                 listOf(
                     "Because we do not hold your personal data, there is nothing for us to access, correct or erase on " +
                         "our side; you control all data on your device. If you have a question or a request under the " +
@@ -115,14 +100,14 @@ object LegalDocuments {
                 )
             ),
             LegalSection(
-                "9. Changes to this policy",
+                "8. Changes to this policy",
                 listOf(
                     "We may update this policy when the app changes. The effective date above will change and " +
                         "significant changes will be noted in the app's release notes."
                 )
             ),
             LegalSection(
-                "10. Contact",
+                "9. Contact",
                 listOf("${LegalInfo.DEVELOPER}, ${LegalInfo.LOCATION}. Email: $E")
             )
         )
@@ -152,15 +137,7 @@ object LegalDocuments {
                 )
             ),
             LegalSection(
-                "3. Optional cloud processing",
-                listOf(
-                    "Cloud features are optional and off by default. They depend on a server that may be unavailable, " +
-                        "slow or discontinued at any time. Use of a server operated by a third party is also subject " +
-                        "to that operator's terms."
-                )
-            ),
-            LegalSection(
-                "4. Accuracy and backups",
+                "3. Accuracy and backups",
                 listOf(
                     "Automatic edge detection, text recognition and file conversion may not be perfectly accurate. " +
                         "Always check important results. Keep your own copies of important documents; uninstalling " +
@@ -168,14 +145,14 @@ object LegalDocuments {
                 )
             ),
             LegalSection(
-                "5. Third-party components",
+                "4. Third-party components",
                 listOf(
                     "The app includes open-source and third-party components that are provided under their own " +
                         "licences, listed in Settings → Open-source licenses."
                 )
             ),
             LegalSection(
-                "6. Disclaimer of warranties",
+                "5. Disclaimer of warranties",
                 listOf(
                     "The app is provided \"as is\" and \"as available\", without warranties of any kind, express or " +
                         "implied, including fitness for a particular purpose and non-infringement, to the extent " +
@@ -183,7 +160,7 @@ object LegalDocuments {
                 )
             ),
             LegalSection(
-                "7. Limitation of liability",
+                "6. Limitation of liability",
                 listOf(
                     "To the maximum extent permitted by law, we are not liable for any indirect, incidental, special " +
                         "or consequential damages, or for loss of data, documents or profits, arising from your use of " +
@@ -191,20 +168,20 @@ object LegalDocuments {
                 )
             ),
             LegalSection(
-                "8. Changes and termination",
+                "7. Changes and termination",
                 listOf(
                     "We may update the app and these terms. Continued use after an update means you accept the " +
                         "revised terms. You may stop using the app at any time by uninstalling it."
                 )
             ),
             LegalSection(
-                "9. Governing law",
+                "8. Governing law",
                 listOf(
                     "These terms are governed by the laws of India. Courts at Kolkata, West Bengal, have exclusive " +
                         "jurisdiction, subject to any mandatory consumer-protection rights in your country."
                 )
             ),
-            LegalSection("10. Contact", listOf("Questions about these terms: $E"))
+            LegalSection("9. Contact", listOf("Questions about these terms: $E"))
         )
     )
 }

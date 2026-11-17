@@ -58,6 +58,7 @@ internal class DataStoreSettingsRepository @Inject constructor(private val dataS
             autoCapture = prefs[Keys.AUTO_CAPTURE] ?: d.autoCapture,
             ocrLanguages = prefs[Keys.OCR_LANGUAGES]
                 ?.mapNotNull { name -> OcrLanguage.entries.firstOrNull { it.name == name } }
+                ?.filter { com.rajdeep.unidoc.core.model.Features.CLOUD || it.engine != com.rajdeep.unidoc.core.model.OcrEngine.CLOUD }
                 ?.toSet()
                 ?.plus(OcrLanguage.ENGLISH)
                 ?: d.ocrLanguages,

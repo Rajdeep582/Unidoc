@@ -31,7 +31,7 @@ CONVERT & EDIT PDFs
 PRIVATE BY DESIGN
 • Everything runs on your phone — no account, no ads, no tracking
 • Your documents never leave the device unless you choose to share them
-• Optional advanced cloud processing is off by default and asks before it is used
+• No cloud: every scan and conversion runs on your phone
 
 Unidoc is made in Kolkata, India.
 

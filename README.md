@@ -6,7 +6,7 @@
 
 ### Scan anything. Convert everything. Share nothing you didn't choose to.
 
-**No ads · No accounts · No tracking · Works offline · Your files never leave your phone**
+**No ads · No cloud · No accounts · No tracking · Works offline · Your files never leave your phone**
 
 <img src="docs/readme/banner.png" width="820" alt="Unidoc — Scan · Convert · Private" />
 
@@ -30,7 +30,7 @@ and keeps everything on your phone.
 | Account / sign-in | **Not needed** | Required for most features |
 | Your documents uploaded to a company server | **Never** | Often by default |
 | Tracking & analytics SDKs | **None** | Common |
-| Works with no internet | **Yes, scanning and PDF tools** | Often partly |
+| Works with no internet | **Yes, everything except Web page → PDF** | Often partly |
 | Watermarks on your PDFs | **Never** | On free tiers |
 | Price | **Free** | Free with limits, then subscription |
 
@@ -84,9 +84,8 @@ Text scales cleanly for larger font sizes.
 - **Camera** is used only while you scan. Deny it and you can still import photos and PDFs.
 - **Files** are opened only when you pick them in the system file picker. The app has no access to your gallery or storage otherwise.
 - **No contacts, location, microphone, SMS or call-log access.** The app never asks for them.
-- **No cloud by default.** A few heavy Office conversions can optionally use a processing server. It is
-  **off unless you turn it on**, it asks first, and it sends only the files you submit to that tool.
-  Those files are deleted as soon as the conversion finishes.
+- **No cloud.** Every scan and every conversion runs on your phone. Unidoc never uploads your documents;
+  the only network use is the *Web page → PDF* tool, which fetches the page you ask for.
 - **Your data, your control.** Delete a document and it's gone. Uninstall and everything goes with it.
 
 Read the full [Privacy Policy](https://rajdeep582.github.io/Unidoc/legal/privacy-policy.html).

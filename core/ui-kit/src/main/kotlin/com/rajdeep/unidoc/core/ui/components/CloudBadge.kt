@@ -19,7 +19,11 @@ import androidx.compose.ui.unit.dp
 
 /** Marks tools that use Unidoc Cloud for best quality. */
 @Composable
-fun CloudBadge(modifier: Modifier = Modifier, label: String = "Cloud") {
+fun CloudBadge(
+    modifier: Modifier = Modifier,
+    label: String = "Cloud",
+    icon: androidx.compose.ui.graphics.vector.ImageVector = Icons.Rounded.Cloud
+) {
     val scheme = MaterialTheme.colorScheme
     Row(
         modifier = modifier
@@ -29,7 +33,7 @@ fun CloudBadge(modifier: Modifier = Modifier, label: String = "Cloud") {
         horizontalArrangement = Arrangement.spacedBy(3.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Icon(Icons.Rounded.Cloud, null, tint = scheme.onTertiaryContainer, modifier = Modifier.size(11.dp))
+        Icon(icon, null, tint = scheme.onTertiaryContainer, modifier = Modifier.size(11.dp))
         Text(label, style = MaterialTheme.typography.labelSmall, color = scheme.onTertiaryContainer, maxLines = 1, softWrap = false)
     }
 }

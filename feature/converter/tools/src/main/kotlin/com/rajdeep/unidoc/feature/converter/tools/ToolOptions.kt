@@ -13,7 +13,9 @@ sealed interface ToolOption {
         override val key: String,
         override val label: String,
         val choices: List<Pair<String, String>>,
-        override val default: String = choices.first().first
+        override val default: String = choices.first().first,
+        /** Shown greyed out with a "Soon" tag; not selectable. */
+        val comingSoon: List<String> = emptyList()
     ) : ToolOption
 
     data class Toggle(
@@ -48,10 +50,11 @@ sealed interface ToolOption {
 }
 
 private val pageSizes = listOf("fit" to "Fit", "a4" to "A4", "letter" to "Letter")
-private val ocrLangs = OcrLanguage.entries.map {
+private val ocrLangs = OcrLanguage.entries.filter { it.engine != com.rajdeep.unidoc.core.model.OcrEngine.CLOUD }.map {
     it.tag to
         if (it.englishName == it.nativeName) it.englishName else "${it.englishName} · ${it.nativeName}"
 }
+private val ocrSoon = OcrLanguage.entries.filter { it.engine == com.rajdeep.unidoc.core.model.OcrEngine.CLOUD }.map { it.englishName }
 private val positions = listOf(
     "bottom_center" to "Bottom center",
     "bottom_right" to "Bottom right",
@@ -128,7 +131,7 @@ object ToolOptions {
             ToolOption.Toggle("cloud_boost", "Extra compression", "Usually 10–30% smaller (Unidoc Cloud)")
         )
         ToolId.OCR_PDF -> listOf(
-            ToolOption.Choice("lang", "Language", ocrLangs),
+            ToolOption.Choice("lang", "Language", ocrLangs, comingSoon = ocrSoon),
             ToolOption.Toggle("skip_text", "Skip pages that already have text", defaultOn = true)
         )
         ToolId.IMAGE_TO_PDF -> listOf(
@@ -211,7 +214,7 @@ object ToolOptions {
                 )
             )
         )
-        ToolId.IMAGE_TO_TEXT -> listOf(ToolOption.Choice("lang", "Language", ocrLangs))
+        ToolId.IMAGE_TO_TEXT -> listOf(ToolOption.Choice("lang", "Language", ocrLangs, comingSoon = ocrSoon))
         ToolId.TEXT_TO_IMAGE -> listOf(
             ToolOption.Text("text", "Text", multiline = true, required = true),
             ToolOption.Choice(

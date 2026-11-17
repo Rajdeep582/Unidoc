@@ -1,13 +1,18 @@
 package com.rajdeep.unidoc.feature.converter.tools.components
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -19,6 +24,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.layout
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -43,6 +49,7 @@ fun OptionField(option: ToolOption, value: String, onChange: (String) -> Unit, m
                     verticalArrangement = Arrangement.spacedBy(Dimens.SpaceS)
                 ) {
                     option.choices.forEach { (key, label) -> UnidocChip(label, key == value, { onChange(key) }) }
+                    option.comingSoon.forEach { SoonChip(it) }
                 }
             } else {
                 // Long lists (languages) scroll; bleed to the screen edge so it reads as scrollable.
@@ -62,6 +69,7 @@ fun OptionField(option: ToolOption, value: String, onChange: (String) -> Unit, m
                     }
                 ) {
                     items(option.choices) { (key, label) -> UnidocChip(label, key == value, { onChange(key) }) }
+                    items(option.comingSoon) { label -> SoonChip(label) }
                 }
             }
         }
@@ -117,4 +125,30 @@ private fun Label(text: String, modifier: Modifier = Modifier) {
         color = MaterialTheme.colorScheme.onSurfaceVariant,
         modifier = modifier.padding(top = 2.dp)
     )
+}
+
+/** A choice that isn't available yet: greyed pill with a small "Soon" tag; not tappable. */
+@Composable
+private fun SoonChip(label: String) {
+    val scheme = MaterialTheme.colorScheme
+    Row(
+        Modifier
+            .height(40.dp)
+            .clip(androidx.compose.foundation.shape.CircleShape)
+            .border(1.dp, scheme.outlineVariant.copy(alpha = 0.6f), androidx.compose.foundation.shape.CircleShape)
+            .padding(start = 14.dp, end = 6.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(label, style = MaterialTheme.typography.labelLarge, color = scheme.onSurfaceVariant.copy(alpha = 0.55f), maxLines = 1)
+        Spacer(Modifier.width(6.dp))
+        Text(
+            "Soon",
+            style = MaterialTheme.typography.labelSmall,
+            color = scheme.primary,
+            modifier = Modifier
+                .clip(androidx.compose.foundation.shape.CircleShape)
+                .background(scheme.primary.copy(alpha = 0.12f))
+                .padding(horizontal = 8.dp, vertical = 3.dp)
+        )
+    }
 }

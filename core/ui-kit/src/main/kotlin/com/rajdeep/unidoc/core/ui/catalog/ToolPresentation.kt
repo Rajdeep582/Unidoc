@@ -112,7 +112,7 @@ fun ToolId.presentation(): ToolPresentation = when (this) {
     ToolId.UNLOCK_PDF -> ToolPresentation("Unlock PDF", "Remove a password you know", Icons.Rounded.LockOpen)
     ToolId.REDACT_PDF -> ToolPresentation("Redact PDF", "Permanently black out content", Icons.Rounded.VisibilityOff)
     ToolId.COMPARE_PDF -> ToolPresentation("Compare PDFs", "Spot text and visual changes", Icons.Rounded.Compare)
-    ToolId.IMAGE_TO_TEXT -> ToolPresentation("Image to text", "English and 14 Indian languages", Icons.Rounded.AutoFixHigh)
+    ToolId.IMAGE_TO_TEXT -> ToolPresentation("Image to text", "English, Hindi, Marathi and more", Icons.Rounded.AutoFixHigh)
     ToolId.TEXT_TO_IMAGE -> ToolPresentation(
         "Text to image",
         "Render text as a shareable image",

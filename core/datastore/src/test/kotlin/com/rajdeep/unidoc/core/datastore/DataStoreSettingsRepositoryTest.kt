@@ -56,8 +56,8 @@ class DataStoreSettingsRepositoryTest {
         val repo = repository(this)
         repo.settings.test {
             awaitItem()
-            repo.setOcrLanguages(setOf(OcrLanguage.BENGALI))
-            assertEquals(setOf(OcrLanguage.ENGLISH, OcrLanguage.BENGALI), awaitItem().ocrLanguages)
+            repo.setOcrLanguages(setOf(OcrLanguage.HINDI, OcrLanguage.BENGALI))
+            assertEquals(setOf(OcrLanguage.ENGLISH, OcrLanguage.HINDI), awaitItem().ocrLanguages)
             repo.setCloudServerUrl("  https://example.hf.space/  ")
             assertEquals("https://example.hf.space", awaitItem().cloudServerUrl)
         }

@@ -53,6 +53,7 @@ class CloudClient @Inject constructor(private val settings: SettingsRepository) 
     data class Config(val baseUrl: String, val apiKey: String)
 
     suspend fun config(): Config? {
+        if (!com.rajdeep.unidoc.core.model.Features.CLOUD) return null
         val s = settings.settings.first()
         return if (s.cloudEnabled && s.cloudServerUrl.startsWith("https://")) Config(s.cloudServerUrl.trimEnd('/'), s.cloudApiKey) else null
     }

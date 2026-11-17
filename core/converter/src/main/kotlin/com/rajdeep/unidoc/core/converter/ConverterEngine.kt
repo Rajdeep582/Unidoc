@@ -157,7 +157,7 @@ class ConverterEngine @Inject constructor(
             val lang = OcrLanguage.entries.firstOrNull { it.tag == ctx.opt("lang", "en") } ?: OcrLanguage.ENGLISH
             if (lang.engine == com.rajdeep.unidoc.core.model.OcrEngine.CLOUD) {
                 val config =
-                    cloud.config() ?: throw IllegalArgumentException("${lang.englishName} OCR runs on Unidoc Cloud — set it up in Settings")
+                    cloud.config() ?: throw IllegalArgumentException("${lang.englishName} text recognition is coming soon")
                 viaCloud(ctx, config, "ocr", "pdf") to null
             } else {
                 PdfContent.ocr(ctx, ocr) to null
@@ -209,7 +209,7 @@ class ConverterEngine @Inject constructor(
     private suspend fun imageTextViaCloud(ctx: JobContext, lang: OcrLanguage): List<File> {
         val config =
             cloud.config()
-                ?: throw IllegalArgumentException("${lang.englishName} text recognition runs on Unidoc Cloud — set it up in Settings")
+                ?: throw IllegalArgumentException("${lang.englishName} text recognition is coming soon")
         ctx.progress(0.1f, "Preparing images")
         val pdfCtx = JobContext(context, ctx.workspace, ctx.inputs, ctx.names, mapOf("page_size" to "fit", "single" to "true")) { _, _ -> }
         val pdf = ImageTools.imagesToPdf(pdfCtx).single()
